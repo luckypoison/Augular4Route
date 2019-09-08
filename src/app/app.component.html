@@ -1,0 +1,13 @@
+<div style="text-align:center">
+ <!--必须加入斜杠，因为这样才能区分是跟路由，还是子路由-->
+  <!--为什么 routerLink的值是一个数组呢，因为可以通过路由传入一些参数-->
+  <a [routerLink]="['/home']">主页</a>
+  <a [routerLink]="['/products','book']" [queryParams]= "{id:1}">商品详情</a>
+  <input type="button" value="商品详情" (click)="clickProductButton()" />
+  <a [routerLink]="[{outlets: {aux: 'chat'}}]">开始聊天</a>
+  <a [routerLink]="[{outlets: {aux: null}}]">结束聊天</a>
+</div>
+
+
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>

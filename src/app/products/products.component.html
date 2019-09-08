@@ -1,0 +1,11 @@
+<p>
+  商品的Id为： {{productId}}
+</p>
+<p>
+  商品的类型为： {{productType}}
+</p>
+
+<a [routerLink] = "['./']">跳转到商品详情</a>
+<a [routerLink] = "['./seller', 99]">跳转到售货员信息</a>
+
+<router-outlet></router-outlet>
