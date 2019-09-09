@@ -11,6 +11,7 @@ import { SellerComponent } from './seller/seller.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginGuard } from './guard/login.guard';
 import { NotSaveGuard } from './guard/notSave.guard';
+import { ProductGuard } from './guard/product.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { NotSaveGuard } from './guard/notSave.guard';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [LoginGuard, NotSaveGuard],
+  providers: [LoginGuard, NotSaveGuard, ProductGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

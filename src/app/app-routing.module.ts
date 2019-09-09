@@ -8,6 +8,7 @@ import { SellerComponent } from './seller/seller.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginGuard } from './guard/login.guard';
 import { NotSaveGuard } from './guard/notSave.guard';
+import { ProductGuard } from './guard/product.guard';
 
 /**
  * Tips: path 不能使用斜杠进行开头，因为可以让Angular自动使用绝对路径和相对路径。
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'chat', component: ChatComponent, outlet: 'aux'},
   {path: 'home', component: HomeComponent},
-  {path: 'products/:type', component: ProductsComponent, canActivate: [LoginGuard], canDeactivate: [NotSaveGuard], children: [
+  // tslint:disable-next-line: max-line-length
+  {path: 'products/:type', component: ProductsComponent, canActivate: [LoginGuard], canDeactivate: [NotSaveGuard],
+   resolve: {product: ProductGuard}, children: [
     {path: '', component: ProductDescComponent},
     {path: 'seller/:id', component: SellerComponent}
   ]},
